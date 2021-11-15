@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Over</title>
+</head>
+<style>
+body{
+    background:#06012b;
+}
+    #container {
+        border: 8px solid #f45353;
+        width: 150px;
+        height: 150px;
+        background: #c7cce4;
+        border-radius: 12px;
+    }
+</style>
+
+
+<body>
+    <h1 style="color:white;">Mouse Over</h1>
+
+    <div id="container">
+    </div>
+
+    <script>
+        let cont = document.getElementById('container')
+        let preHtml = document.getElementById('container').innerHTML
+
+        cont.addEventListener('mouseover', function () {
+            cont.style.width = "300px";
+            cont.style.height = "300px";
+            cont.style.border = "8px solid #c7cce4";
+            cont.style.background = "#f45353";
+            console.log('Mouse Over')
+        })
+        cont.addEventListener('mouseout', function () {
+            cont.style.width = "150px";
+            cont.style.height = "150px";
+            cont.style.background = "#c7cce4";
+            cont.style.border = "8px solid #f45353";
+            document.getElementById('container').innerHTML = preHtml;
+            console.log('Mouse Out')
+        })
+    </script>
+</body>
+
+</html>

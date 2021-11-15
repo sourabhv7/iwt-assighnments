@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        background: black;
+    }
+
+    .demo {
+        color: #76f202;
+        font-size: 50px;
+        text-align: center;
+        font-family: 'digital-clock-font';
+    }
+
+    @font-face {
+        font-family: 'digital-clock-font';
+        src: url('digital-7.ttf');
+    }
+
+    .container {
+        border: 5px solid #76f202;
+        width: 600px;
+        height: 300px;
+        margin: 90px auto;
+        background: #06012b;
+        border-radius: 10px
+    }
+
+    .container2 {
+        border: 5px solid #76f202;
+        ;
+        padding-top: 84px;
+        padding-bottom: 77px;
+        margin: 6px;
+    }
+</style>
+
+<body>
+    <h1 style="text-align: center;
+    background: black;
+    border: 2px solid black;
+    font: white;
+    color: white;">Digital Clock</h1>
+
+    <div class="container">
+        <div class="container2">
+            <div class="demo" id="time">Time</div>
+            <hr>
+            <div class="demo" id="date">Date</div>
+        </div>
+    </div>
+    <script>
+        let a;
+        let time;
+        let date;
+        const options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+        setInterval(() => {
+            a = new Date()
+            time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds()
+            // date = a.getDate() + '/' + a.getMonth() + '/' + a.getFullYear()
+            date = a.toLocaleDateString(undefined, options);
+            document.getElementById('time').innerHTML = time;
+            document.getElementById('date').innerHTML = date;
+        }, 1000)
+    </script>
+
+
+</body>
+
+
+
+
+</html>
